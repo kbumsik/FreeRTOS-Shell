@@ -1,0 +1,44 @@
+﻿  Run-time-stats-utils.c
+  main_full.c
+  main_blinky.c
+  tasks.c
+  queue.c
+  port.c
+  list.c
+  main.c
+  timerdemo.c
+  TaskNotify.c
+  StaticAllocation.c
+  semtest.c
+  recmutex.c
+  QueueSetPolling.c
+  QueueSet.c
+  QueueOverwrite.c
+  QPeek.c
+  PollQ.c
+  IntSemTest.c
+  integer.c
+  Generating Code...
+  Compiling...
+  GenQTest.c
+  flop.c
+  EventGroupsDemo.c
+  dynamic.c
+  death.c
+  countsem.c
+  blocktim.c
+  BlockQ.c
+  AbortDelay.c
+  timers.c
+  heap_5.c
+c:\users\bumsik kim\dropbox\documents\projects\freertos\freertos\source\portable\memmang\heap_5.c(344): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+  event_groups.c
+  croutine.c
+  trcUser.c
+  trcKernelPort.c
+c:\users\bumsik kim\dropbox\documents\projects\freertos\freertos-plus\source\freertos-plus-trace\trckernelport.c(121): warning C4305: '=': truncation from 'int' to 'objectHandleType'
+  trcKernel.c
+  trcHardwarePort.c
+  trcBase.c
+  Generating Code...
+  WIN32.vcxproj -> C:\Users\Bumsik Kim\Dropbox\Documents\Projects\FreeRTOS\FreeRTOS\Demo\WIN32-MSVC\.\Debug\RTOSDemo.exe
