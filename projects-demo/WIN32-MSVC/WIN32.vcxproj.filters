@@ -38,6 +38,9 @@
     <Filter Include="Demo App Source\Blinky_Demo">
       <UniqueIdentifier>{fb86fa48-ac27-4f87-9215-ce9e1a1a85f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FreeRTOS Wrapper">
+      <UniqueIdentifier>{30c38168-f7ca-4c2a-a979-6b04038b2aaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -154,6 +157,9 @@
     <ClCompile Include="..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\trcUser.c">
       <Filter>Demo App Source\FreeRTOS+Trace Recorder</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\frs_task.c">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FreeRTOSConfig.h">
@@ -194,6 +200,33 @@
     </ClInclude>
     <ClInclude Include="..\..\FreeRTOS\Source\include\portable.h">
       <Filter>FreeRTOS Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\FreeRTOS-Shell.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_task.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_ps.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_ls.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_kill.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_stop.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_bg.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_resume.h">
+      <Filter>FreeRTOS Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_sh.h">
+      <Filter>FreeRTOS Wrapper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

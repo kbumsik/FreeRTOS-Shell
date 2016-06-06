@@ -73,7 +73,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\FreeRTOS\Source\include;..\..\FreeRTOS\Source\portable\MSVC-MingW;..\Common\Include;..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\Include;.\Trace_Recorder_Configuration;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\FreeRTOS-Shell;..\..\FreeRTOS\Source\include;..\..\FreeRTOS\Source\portable\MSVC-MingW;..\Common\Include;..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\Include;.\Trace_Recorder_Configuration;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_WIN32_WINNT=0x0500;WINVER=0x400;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -192,6 +192,7 @@
     <ClCompile Include="..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\trcKernel.c" />
     <ClCompile Include="..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\trcKernelPort.c" />
     <ClCompile Include="..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\trcUser.c" />
+    <ClCompile Include="..\..\FreeRTOS-Shell\frs_task.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\croutine.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\event_groups.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\list.c" />
@@ -233,6 +234,15 @@
     <ClCompile Include="Run-time-stats-utils.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\FreeRTOS-Shell\FreeRTOS-Shell.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_sh.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_bg.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_kill.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_ls.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_ps.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_task.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_resume.h" />
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_stop.h" />
     <ClInclude Include="..\..\FreeRTOS\Source\include\croutine.h" />
     <ClInclude Include="..\..\FreeRTOS\Source\include\event_groups.h" />
     <ClInclude Include="..\..\FreeRTOS\Source\include\FreeRTOS.h" />

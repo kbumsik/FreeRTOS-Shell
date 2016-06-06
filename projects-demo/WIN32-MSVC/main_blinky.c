@@ -134,6 +134,9 @@
 #include "timers.h"
 #include "semphr.h"
 
+/* application includes. */
+#include "FreeRTOS-Shell.h"
+
 /* Priorities at which the tasks are created. */
 #define mainQUEUE_RECEIVE_TASK_PRIORITY		( tskIDLE_PRIORITY + 2 )
 #define	mainQUEUE_SEND_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
@@ -186,14 +189,24 @@ const TickType_t xTimerPeriod = mainTIMER_SEND_FREQUENCY_MS;
 	{
 		/* Start the two tasks as described in the comments at the top of this
 		file. */
-		xTaskCreate( prvQueueReceiveTask,			/* The function that implements the task. */
-					"Rx", 							/* The text name assigned to the task - for debug only as it is not used by the kernel. */
-					configMINIMAL_STACK_SIZE, 		/* The size of the stack to allocate to the task. */
-					NULL, 							/* The parameter passed to the task - not used in this simple case. */
-					mainQUEUE_RECEIVE_TASK_PRIORITY,/* The priority assigned to the task. */
-					NULL );							/* The task handle is not required, so NULL is passed. */
+		frs_task_register(prvQueueReceiveTask, "Rx");
+		frs_task_register(prvQueueSendTask, "Tx");
+		frs_task_print_flist();
 
-		xTaskCreate( prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY, NULL );
+		//frs_task_create( prvQueueReceiveTask,			/* The function that implements the task. */
+		//			"Rx", 							/* The text name assigned to the task - for debug only as it is not used by the kernel. */
+		//			configMINIMAL_STACK_SIZE, 		/* The size of the stack to allocate to the task. */
+		//			NULL, 							/* The parameter passed to the task - not used in this simple case. */
+		//			mainQUEUE_RECEIVE_TASK_PRIORITY);
+
+		//frs_task_create( prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
+		//printf("%d", frs_task_get_tid("Tx"));
+		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
+		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
+		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
+		frs_task_run_name("Rx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
+		frs_task_run_name("Rx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
+		frs_task_run_name("Rx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
 
 		/* Create the software timer, but don't start it yet. */
 		xTimer = xTimerCreate( "Timer",				/* The text name assigned to the software timer - for debug only as it is not used by the kernel. */
