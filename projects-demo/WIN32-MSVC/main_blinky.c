@@ -193,14 +193,6 @@ const TickType_t xTimerPeriod = mainTIMER_SEND_FREQUENCY_MS;
 		frs_task_register(prvQueueSendTask, "Tx");
 		frs_task_print_flist();
 
-		//frs_task_create( prvQueueReceiveTask,			/* The function that implements the task. */
-		//			"Rx", 							/* The text name assigned to the task - for debug only as it is not used by the kernel. */
-		//			configMINIMAL_STACK_SIZE, 		/* The size of the stack to allocate to the task. */
-		//			NULL, 							/* The parameter passed to the task - not used in this simple case. */
-		//			mainQUEUE_RECEIVE_TASK_PRIORITY);
-
-		//frs_task_create( prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
-		//printf("%d", frs_task_get_tid("Tx"));
 		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
 		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
 		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
