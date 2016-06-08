@@ -7,7 +7,9 @@ Note taht the root of pusudo-filesystem is stored in RAM, not FLASH or other ext
 
 ## TODOs
 1. implement Shell.
-2. implement killing and resuming tasks.
-4. Add user tasks.
-5. implement redireting stdout to IO devices, such as USART ,LCD, and SD card.
+2. implement killing, pausing, and resuming tasks.
+4. Add user tasks for Shell.
+5. Redirecting stdio to IO devices, such as USART ,LCD, and SD card.
 6. create memory block and memory allocation system for the root, to manage RAM strictly.
+7. moving to CMake project management.
+8. make assert() for switching debugging option.

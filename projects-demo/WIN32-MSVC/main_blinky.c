@@ -180,35 +180,15 @@ static TimerHandle_t xTimer = NULL;
 /*** SEE THE COMMENTS AT THE TOP OF THIS FILE ***/
 void main_blinky( void )
 {
-const TickType_t xTimerPeriod = mainTIMER_SEND_FREQUENCY_MS;
 
 	/* Create the queue. */
 	xQueue = xQueueCreate( mainQUEUE_LENGTH, sizeof( uint32_t ) );
 
 	if( xQueue != NULL )
 	{
-		/* Start the two tasks as described in the comments at the top of this
-		file. */
-		frs_task_register(prvQueueReceiveTask, "Rx");
-		frs_task_register(prvQueueSendTask, "Tx");
-		frs_task_print_flist();
-
-		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
-		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
-		frs_task_run_name("Tx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_RECEIVE_TASK_PRIORITY);
-		frs_task_run_name("Rx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
-		frs_task_run_name("Rx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
-		frs_task_run_name("Rx", configMINIMAL_STACK_SIZE, NULL, mainQUEUE_SEND_TASK_PRIORITY);
-
-		/* Create the software timer, but don't start it yet. */
-		xTimer = xTimerCreate( "Timer",				/* The text name assigned to the software timer - for debug only as it is not used by the kernel. */
-								xTimerPeriod,		/* The period of the software timer in ticks. */
-								pdFALSE,			/* xAutoReload is set to pdFALSE, so this is a one shot timer. */
-								NULL,				/* The timer's ID is not used. */
-								prvQueueSendTimerCallback );/* The function executed when the timer expires. */
-
+        frs_init();
 		/* Start the tasks and timer running. */
-		vTaskStartScheduler();
+        frs_start();
 	}
 
 	/* If all is well, the scheduler will now be running, and the following

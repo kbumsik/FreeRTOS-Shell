@@ -38,8 +38,11 @@
     <Filter Include="Demo App Source\Blinky_Demo">
       <UniqueIdentifier>{fb86fa48-ac27-4f87-9215-ce9e1a1a85f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FreeRTOS Wrapper">
+    <Filter Include="FreeRTOS-Shell">
       <UniqueIdentifier>{30c38168-f7ca-4c2a-a979-6b04038b2aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeRTOS-Shell\user_tasks">
+      <UniqueIdentifier>{cc687bb6-f163-4286-9058-c966867e1836}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -158,7 +161,13 @@
       <Filter>Demo App Source\FreeRTOS+Trace Recorder</Filter>
     </ClCompile>
     <ClCompile Include="..\..\FreeRTOS-Shell\frs_task.c">
-      <Filter>FreeRTOS Wrapper</Filter>
+      <Filter>FreeRTOS-Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\frs.c">
+      <Filter>FreeRTOS-Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ls.c">
+      <Filter>FreeRTOS-Shell\user_tasks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,31 +211,19 @@
       <Filter>FreeRTOS Source\Include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\FreeRTOS-Shell\FreeRTOS-Shell.h">
-      <Filter>FreeRTOS Wrapper</Filter>
+      <Filter>FreeRTOS-Shell</Filter>
     </ClInclude>
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_task.h">
-      <Filter>FreeRTOS Wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_ps.h">
-      <Filter>FreeRTOS Wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_ls.h">
-      <Filter>FreeRTOS Wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_kill.h">
-      <Filter>FreeRTOS Wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_stop.h">
-      <Filter>FreeRTOS Wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_bg.h">
-      <Filter>FreeRTOS Wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_resume.h">
-      <Filter>FreeRTOS Wrapper</Filter>
+      <Filter>FreeRTOS-Shell</Filter>
     </ClInclude>
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_sh.h">
-      <Filter>FreeRTOS Wrapper</Filter>
+      <Filter>FreeRTOS-Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_queue.h">
+      <Filter>FreeRTOS-Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_tasks.h">
+      <Filter>FreeRTOS-Shell</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
