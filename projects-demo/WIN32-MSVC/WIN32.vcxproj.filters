@@ -169,6 +169,12 @@
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ls.c">
       <Filter>FreeRTOS-Shell\user_tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ps.c">
+      <Filter>FreeRTOS-Shell\user_tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\top.c">
+      <Filter>FreeRTOS-Shell\user_tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FreeRTOSConfig.h">

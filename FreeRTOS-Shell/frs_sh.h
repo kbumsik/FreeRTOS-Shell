@@ -8,9 +8,8 @@
 #ifdef __cplusplus
 extern "C"{
 #endif
-void frs_sh(void *parameters);
 
-void frs_sh_cmd(const char * const commend);
+void frs_sh(void *parameters);
 
 #ifdef __cplusplus
 }

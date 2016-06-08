@@ -4,8 +4,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-typedef uint8_t frs_tid_t;		//< TID (task ID) of FreeRTOS task
-typedef uint8_t frs_inode_t;	//< inode of pseudo-filesystem
+typedef uint8_t frs_id_t;       //< Generic ID number type
+typedef frs_id_t frs_tid_t;		//< TID (task ID) of FreeRTOS task
+typedef frs_id_t frs_inode_t;	//< inode of pseudo-filesystem
 
 #ifdef __cplusplus
 extern "C"{
@@ -21,14 +22,6 @@ extern "C"{
 frs_inode_t frs_task_register(TaskFunction_t task_fn, const char * const name);
 
 /**
- * @brief      get inode of task file using name
- *
- * @param[in]  name  The name of task to find
- *
- * @return     inode of task file
- */
-frs_inode_t frs_task_get_inode(const char * const name);
-/**
  * @brief      run task
  *
  * @param[in]  inode         The inode of task to run
@@ -42,7 +35,7 @@ frs_inode_t frs_task_get_inode(const char * const name);
  *
  * @return     allocated tid(task id) of task
  */
-frs_tid_t frs_task_run(
+frs_tid_t frs_task_run_inode(
     frs_inode_t inode,
     uint16_t stack_depth,
     void *parameters,
@@ -75,7 +68,7 @@ int frs_task_pause(frs_tid_t tid);
 
 int frs_task_pause_name(const char * const name);
 
-int frs_task_kill(frs_tid_t tid);
+void frs_task_kill(frs_tid_t tid);
 
 int frs_task_kill_name(const char * const name);
 

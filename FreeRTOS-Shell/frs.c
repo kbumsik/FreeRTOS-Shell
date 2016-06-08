@@ -26,7 +26,7 @@ int frs_init(void)
     }
 	// create sh task
     result = frs_task_register(frs_sh, "sh");
-    result = frs_task_run((frs_inode_t)result, frsSH_STACK_SIZE,
+    result = frs_task_run_inode((frs_inode_t)result, frsSH_STACK_SIZE,
     						 NULL, frsSH_PRIORITY);
     if (0 == result)
     {
@@ -37,6 +37,8 @@ int frs_init(void)
     e.g) result = frs_task_register(function pointer, "function name");
     */
     result = frs_task_register(frs_user_ls, "ls");
+    result = frs_task_register(frs_user_ps, "ps");
+    result = frs_task_register(frs_user_top, "top");
     return 0;
 }
 
@@ -59,8 +61,14 @@ void frs_sh(void *parameters)
         switch (cmd)
         {
         case FRS_SH_CMD_SIMPLE:
-            frs_task_run_name(fst_arg.argv[0], frsSH_STACK_SIZE,
-                NULL, frsSH_PRIORITY);
+            {   // critical section
+                taskENTER_CRITICAL();
+                frs_task_run_name(fst_arg.argv[0], frsSH_STACK_SIZE,
+                    NULL, frsSH_PRIORITY);
+                taskEXIT_CRITICAL();
+            }
+            taskYIELD();
+            // TODO: inactivate shell until task goes background
             break;
         case FRS_SH_CMD_PIPELINE:
 
@@ -69,6 +77,7 @@ void frs_sh(void *parameters)
 
             break;
         }
+        vTaskDelay(50);
         // check if there is pipeline
         // check if there is redirection
         // extract additional arguments of the fisrt commend
@@ -87,12 +96,14 @@ inline static void print_ready(const char * const current_path)
 static int extract_cmd(struct frs_arg_t *fst_arg, char *buf)
 {
     int len;
+    char current_char;
     fst_arg->argc = 0;
     buf = str_skip_spaces(buf);
-    while ((*buf != '\n')&&
-           (*buf != '\0')&&
-           (*buf != '|')&&
-           (*buf != '>'))   // TODO: add more and find a batter way
+    current_char = *buf;
+    while ((current_char != '\n')&&
+           (current_char != '\0')&&
+           (current_char != '|')&&
+           (current_char != '>'))   // TODO: add more and find a batter way
     {
         len = get_nonwhitespace_len(buf);
         strncpy(fst_arg->argv[fst_arg->argc], buf, len);
@@ -100,8 +111,9 @@ static int extract_cmd(struct frs_arg_t *fst_arg, char *buf)
         fst_arg->argc++;
         buf = buf + len;
         buf = str_skip_spaces(buf);
+        current_char = *buf;
     }
-    switch (*buf)
+    switch (current_char)
     {
     case '|':
         return FRS_SH_CMD_PIPELINE;
@@ -126,13 +138,16 @@ static char *str_skip_spaces(char *buf)
 static int get_nonwhitespace_len(char *buf)
 {
     int result;
+    char current;
     result = 0;
-    while ((*buf != ' ') && // space
-           (*buf != '\n') &&  // newline
-           (*buf != '\0'))    // null charater
+    current = *buf;
+    while ((current != ' ') && // space
+           (current != '\n') &&  // newline
+           (current != '\0'))    // null charater
     {
         result++;
         buf++;
+    	current = *buf;
     }
     return result;
 }

@@ -195,6 +195,8 @@
     <ClCompile Include="..\..\FreeRTOS-Shell\frs.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\frs_task.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ls.c" />
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ps.c" />
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\top.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\croutine.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\event_groups.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\list.c" />
