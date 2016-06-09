@@ -8,9 +8,6 @@
 
 typedef void * frs_queue_h;
 
-
-
-
 inline frs_queue_h frs_queue_create(int queue_len, size_t item_size)
 {
     frs_queue_h result;

@@ -1,6 +1,8 @@
 #ifndef _FRS_LS_H_
 #define _FRS_LS_H_
 
+void frs_user_sh(void *parameters);
+
 void frs_user_ls(void *parameters);
 
 void frs_user_ps(void *parameters);

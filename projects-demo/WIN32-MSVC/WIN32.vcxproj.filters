@@ -184,6 +184,9 @@
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\resume.c">
       <Filter>FreeRTOS-Shell\user_tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\sh.c">
+      <Filter>FreeRTOS-Shell\user_tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FreeRTOSConfig.h">
@@ -229,9 +232,6 @@
       <Filter>FreeRTOS-Shell</Filter>
     </ClInclude>
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_task.h">
-      <Filter>FreeRTOS-Shell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_sh.h">
       <Filter>FreeRTOS-Shell</Filter>
     </ClInclude>
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_queue.h">

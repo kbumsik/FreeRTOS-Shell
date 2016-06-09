@@ -198,6 +198,7 @@
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ls.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ps.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\resume.c" />
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\sh.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\stop.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\top.c" />
     <ClCompile Include="..\..\FreeRTOS\Source\croutine.c" />
@@ -243,7 +244,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\FreeRTOS-Shell\FreeRTOS-Shell.h" />
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_queue.h" />
-    <ClInclude Include="..\..\FreeRTOS-Shell\frs_sh.h" />
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_user_tasks.h" />
     <ClInclude Include="..\..\FreeRTOS-Shell\frs_task.h" />
     <ClInclude Include="..\..\FreeRTOS\Source\include\croutine.h" />

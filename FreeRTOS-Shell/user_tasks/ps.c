@@ -9,5 +9,5 @@ void frs_user_ps(void *parameters)
     printf(buf);
 
     /* kill task */
-    //frs_task_kill_name(NULL);
+    frs_task_kill_name(NULL);
 }
