@@ -178,6 +178,12 @@
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\kill.c">
       <Filter>FreeRTOS-Shell\user_tasks</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\stop.c">
+      <Filter>FreeRTOS-Shell\user_tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\resume.c">
+      <Filter>FreeRTOS-Shell\user_tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FreeRTOSConfig.h">

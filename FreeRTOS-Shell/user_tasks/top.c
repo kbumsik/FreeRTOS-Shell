@@ -9,5 +9,5 @@ void frs_user_top(void *parameters)
     printf(buf);
 
     /* kill task */
-    frs_task_kill(NULL);
+    frs_task_kill_name(NULL);
 }

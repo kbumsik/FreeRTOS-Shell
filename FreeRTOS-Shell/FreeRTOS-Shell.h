@@ -26,7 +26,7 @@
 
 struct frs_arg_t {
     int argc;
-    char argv[4][6];
+    char argv[4][10];
 };
 
 

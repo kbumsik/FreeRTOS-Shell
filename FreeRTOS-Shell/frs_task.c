@@ -195,6 +195,98 @@ frs_tid_t frs_task_run_name(
     return task_run(tmp, stack_depth, parameters, priority);
 }
 
+void frs_task_suspend(frs_tid_t tid_to_pause)
+{
+    TaskHandle_t handle;
+    if (0 == tid_to_pause)
+    {
+        // get current handle or tid and then delete
+        handle = xTaskGetCurrentTaskHandle();
+    }
+    else
+    {
+        handle = ((struct task_t *) list_find_handle_from_id(tid_to_pause, &task_list));
+    }
+    if (NULL == handle)
+    {
+        goto end_error;
+    }
+    frs_print("Task suspending..\n");
+    vTaskSuspend(handle);
+    return;
+end_error:
+    frs_error("Suspending task failed\n");
+}
+
+void frs_task_suspend_name(const char * const name_to_pause)
+{
+    TaskHandle_t handle;
+    if (NULL == name_to_pause)
+    {
+        // get current handle or tid and then delete
+        handle = xTaskGetCurrentTaskHandle();
+    }
+    else
+    {
+        handle = ((struct task_t *) list_find_handle_from_name(name_to_pause, &task_list));
+    }
+    if (NULL == handle)
+    {
+        goto end_error;
+    }
+    frs_print("Task suspending..\n");
+    vTaskSuspend(handle);
+    return;
+end_error:
+    frs_error("Suspending task failed\n");
+}
+
+void frs_task_resume(frs_tid_t tid_to_resume)
+{
+    TaskHandle_t handle;
+    if (0 == tid_to_resume)
+    {
+        // get current handle or tid and then delete
+        handle = xTaskGetCurrentTaskHandle();
+    }
+    else
+    {
+        handle = ((struct task_t *) list_find_handle_from_id(tid_to_resume, &task_list));
+    }
+    if (NULL == handle)
+    {
+        goto end_error;
+    }
+    frs_print("Task resuming..\n");
+    vTaskResume(handle);
+    return;
+end_error:
+    frs_error("Resuming task failed\n");
+}
+
+void frs_task_resume_name(const char * const name_to_resume)
+{
+    TaskHandle_t handle;
+    if (NULL == name_to_resume)
+    {
+        // get current handle or tid and then delete
+        handle = xTaskGetCurrentTaskHandle();
+    }
+    else
+    {
+        handle = ((struct task_t *) list_find_handle_from_name(name_to_resume, &task_list));
+    }
+    if (NULL == handle)
+    {
+        goto end_error;
+    }
+    frs_print("Task resuming..\n");
+    vTaskResume(handle);
+    return;
+end_error:
+    frs_error("Resuming task failed\n");
+}
+
 void frs_task_kill(frs_tid_t tid_to_delete)
 {
     TaskHandle_t handle;

@@ -7,5 +7,5 @@ void frs_user_ls(void *parameters)
     frs_task_print_flist();
 
     /* kill task */
-    frs_task_kill(NULL);
+    frs_task_kill_name(NULL);
 }

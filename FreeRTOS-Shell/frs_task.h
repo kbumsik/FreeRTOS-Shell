@@ -64,9 +64,13 @@ frs_tid_t frs_task_run_name(
 
 frs_tid_t frs_task_get_tid(const char * const name);
 
-int frs_task_pause(frs_tid_t tid);
+void frs_task_suspend(frs_tid_t tid);
 
-int frs_task_pause_name(const char * const name);
+void frs_task_suspend_name(const char * const name);
+
+void frs_task_resume(frs_tid_t tid);
+
+void frs_task_resume_name(const char * const name);
 
 void frs_task_kill(frs_tid_t tid);
 

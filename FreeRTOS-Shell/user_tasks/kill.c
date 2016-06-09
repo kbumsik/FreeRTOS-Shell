@@ -1,6 +1,7 @@
 #include "FreeRTOS-Shell.h"
 #include "frs_user_tasks.h"
 #include <stdlib.h>
+#include <errno.h>
 
 #define print_help(name)  \
             printf("%s: usage: kill [-n] target-name or tid\n", name);
@@ -64,8 +65,8 @@ void frs_user_kill(void *parameters)
     goto end_task;
 
 end_task: /* kill task */
-    frs_task_kill(NULL);
+    frs_task_kill_name(NULL);
 end_task_err:
     print_help(param->argv[0]);
-    frs_task_kill(NULL);
+    frs_task_kill_name(NULL);
 }

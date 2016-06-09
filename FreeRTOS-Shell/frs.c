@@ -36,10 +36,12 @@ int frs_init(void)
     /* Here, we add user functions
     e.g) result = frs_task_register(function pointer, "function name");
     */
-    result = frs_task_register(frs_user_ls, "ls");
+    result = frs_task_register(frs_user_ls, "ls");  // TODO: add error detection
     result = frs_task_register(frs_user_ps, "ps");
     result = frs_task_register(frs_user_top, "top");
     result = frs_task_register(frs_user_kill, "kill");
+    result = frs_task_register(frs_user_resume, "resume");
+    result = frs_task_register(frs_user_stop, "stop");
     return 0;
 }
 
