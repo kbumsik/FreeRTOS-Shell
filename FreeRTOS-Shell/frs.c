@@ -39,6 +39,7 @@ int frs_init(void)
     result = frs_task_register(frs_user_ls, "ls");
     result = frs_task_register(frs_user_ps, "ps");
     result = frs_task_register(frs_user_top, "top");
+    result = frs_task_register(frs_user_kill, "kill");
     return 0;
 }
 
@@ -64,7 +65,7 @@ void frs_sh(void *parameters)
             {   // critical section
                 taskENTER_CRITICAL();
                 frs_task_run_name(fst_arg.argv[0], frsSH_STACK_SIZE,
-                    NULL, frsSH_PRIORITY);
+                    &fst_arg, frsSH_PRIORITY);
                 taskEXIT_CRITICAL();
             }
             taskYIELD();

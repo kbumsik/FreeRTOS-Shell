@@ -72,7 +72,27 @@ static frs_id_t list_delete_from_payload(void *payload, void *list);
 
 static struct template_t *list_find_from_name(const char * const name, void *list);
 
+inline static TaskHandle_t list_find_handle_from_name(const char * const name, void *list)
+{
+    struct template_t *result = list_find_from_name(name, list);
+    if (NULL == result)
+    {
+        return NULL;
+    }
+    return (TaskHandle_t) result->payload;
+}
+
 static struct template_t *list_find_from_id(const frs_id_t id, void *list);
+
+inline static struct template_t *list_find_handle_from_id(const frs_id_t id, void *list)
+{
+    struct template_t *result = list_find_from_id(id, list);
+    if (NULL == result)
+    {
+        return NULL;
+    }
+    return (TaskHandle_t)result->payload;
+}
 
 static inline void *malloc_wrapper(size_t size);
 
@@ -185,11 +205,42 @@ void frs_task_kill(frs_tid_t tid_to_delete)
     }
     else
     {
-        handle = ((struct task_t *) list_find_from_id(tid_to_delete, &task_list))->handle;
+        handle = ((struct task_t *) list_find_handle_from_id(tid_to_delete, &task_list));
+    }
+    if (NULL == handle)
+    {
+        goto end_error;
     }
     list_delete_from_payload((void *)handle, &task_list);
     frs_print("task deleted\n");
     vTaskDelete(handle);
+    return;
+end_error:
+    frs_error("Deleting task failed\n");
+}
+
+void frs_task_kill_name(const char * const name)
+{
+    TaskHandle_t handle;
+    if (NULL == name)
+    {
+        // get current handle or tid and then delete
+        handle = xTaskGetCurrentTaskHandle();
+    }
+    else
+    {
+        handle = ((struct task_t *) list_find_handle_from_name(name, &task_list));
+    }
+    if (NULL == handle)
+    {
+        goto end_error;
+    }
+    list_delete_from_payload((void *)handle, &task_list);
+    frs_print("task deleted\n");
+    vTaskDelete(handle);
+    return;
+end_error:
+    frs_error("Deleting task failed\n");
 }
 
 void frs_task_print_flist(void)

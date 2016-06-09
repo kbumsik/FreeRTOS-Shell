@@ -194,6 +194,7 @@
     <ClCompile Include="..\..\FreeRTOS-Plus\Source\FreeRTOS-Plus-Trace\trcUser.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\frs.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\frs_task.c" />
+    <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\kill.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ls.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\ps.c" />
     <ClCompile Include="..\..\FreeRTOS-Shell\user_tasks\top.c" />

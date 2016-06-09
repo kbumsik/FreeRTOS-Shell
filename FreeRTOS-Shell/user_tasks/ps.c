@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "FreeRTOS-Shell.h"
 #include "frs_user_tasks.h"
 
 void frs_user_ps(void *parameters)
@@ -9,5 +9,5 @@ void frs_user_ps(void *parameters)
     printf(buf);
 
     /* kill task */
-    frs_task_kill(NULL);
+    //frs_task_kill(NULL);
 }

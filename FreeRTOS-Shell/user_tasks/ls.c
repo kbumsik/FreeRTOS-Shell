@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "FreeRTOS-Shell.h"
 #include "frs_user_tasks.h"
 
 void frs_user_ls(void *parameters)

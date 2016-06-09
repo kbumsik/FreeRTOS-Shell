@@ -70,7 +70,7 @@ int frs_task_pause_name(const char * const name);
 
 void frs_task_kill(frs_tid_t tid);
 
-int frs_task_kill_name(const char * const name);
+void frs_task_kill_name(const char * const name);
 
 void frs_task_print_flist(void);
 
